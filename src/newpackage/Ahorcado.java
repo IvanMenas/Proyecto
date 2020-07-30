@@ -61,6 +61,7 @@ public class Ahorcado extends javax.swing.JFrame {
         txtLetra.getAccessibleContext().setAccessibleName("");
 
         btnTry.setText("Intentar");
+        btnTry.setEnabled(false);
         btnTry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTryActionPerformed(evt);
@@ -84,6 +85,7 @@ public class Ahorcado extends javax.swing.JFrame {
         Chances C = new Chances();
     private void btnGenereteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenereteActionPerformed
         // TODO add your handling code here:
+        btnTry.setEnabled(true);
         lblWord.setText("");
         String[] x = {"PERRO", "GATO", "COMPUTADORA", "PROGRAMACION", "ZAPATO", "PATINETA", "UKELELE", "MANGO", "BOTELLA",
         "MARCIANOS", "ESCRITORIO", "VAPOR", "ORIENTE", "CORONAVIRUS", "VIKINGOS", "IDIOMA", "ESPAÑOL", "CUARENTENA"};
@@ -121,8 +123,17 @@ public class Ahorcado extends javax.swing.JFrame {
         txtLetra.setText("");
         C.perder(C.getIntentos_Fallidos());
         C.ganar(lblWord.getText());
+        
         if(C.getGameOver()){
         cleaner();
+        C.setGameOver(false);
+        C.setIntentos_Fallidos(0);
+        C.setIntentos_Totales(5);
+        w.setCompleteWord(false);
+        w.setCorrectLetter(false);
+        w.setLetter(' ');
+        w.setWord("");
+        btnTry.setEnabled(false);
         }
     }//GEN-LAST:event_btnTryActionPerformed
 public void cleaner(){
