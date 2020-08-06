@@ -83,6 +83,8 @@ public class Ahorcado extends javax.swing.JFrame {
 
         Word w = new Word();
         Chances C = new Chances();
+        Ganar_Perder GP=new Ganar_Perder();
+        
     private void btnGenereteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenereteActionPerformed
         // TODO add your handling code here:
         btnTry.setEnabled(true);
@@ -121,12 +123,12 @@ public class Ahorcado extends javax.swing.JFrame {
                 }
         }
         txtLetra.setText("");
-        C.perder(C.getIntentos_Fallidos());
-        C.ganar(lblWord.getText());
+        GP.perder(C.getIntentos_Fallidos());
+        GP.ganar(lblWord.getText());
         
-        if(C.getGameOver()){
+        if(GP.getGameOver()){
         cleaner();
-        C.setGameOver(false);
+        GP.setGameOver(false);
         C.setIntentos_Fallidos(0);
         C.setIntentos_Totales(5);
         w.setCompleteWord(false);

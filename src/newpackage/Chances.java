@@ -14,25 +14,12 @@ import javax.swing.JOptionPane;
 public class Chances {
      private int Intentos_Totales;
     private int Intentos_Fallidos;
-    private boolean GameOver;
-    
-    
-    
+
     public Chances() {
         this.Intentos_Totales = 5;
        this.Intentos_Fallidos=0;
-        this.GameOver=false;
-        
     }
     
-    public boolean getGameOver(){
-       return GameOver;
-   }
-   public void setGameOver(boolean gameover){
-       this.GameOver=gameover;
-   }
-
-   
     public int getIntentos_Totales() {
         return Intentos_Totales;
     }
@@ -53,18 +40,4 @@ public class Chances {
      return intentos_totales-intentos_fallidos;   
 
     }
-    public void perder(int intentos_Fallidos){
-        if(intentos_Fallidos==5){
-            JOptionPane.showMessageDialog(null,"¡Perdiste, inténtalo de nuevo!");
-            setGameOver(true);
-        }
-    }
-    public void ganar(String valor){
-        if(!valor.contains("_")){
-            JOptionPane.showMessageDialog(null,"¡Ganaste!");
-            setGameOver(true);
-        }
-       
-    }
-    
 }//Fin clase Chances
