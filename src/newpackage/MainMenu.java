@@ -85,6 +85,10 @@ public class MainMenu extends javax.swing.JFrame {
         Gato = new Gato() {};
          this.setVisible(false);
         Gato.setVisible(true);
+        Gato.setSize(500, 550);
+        Gato.setLocationRelativeTo(null);
+        Gato.setResizable(false );
+        Gato.setTitle("Juego de Gato");
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
