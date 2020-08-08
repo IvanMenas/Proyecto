@@ -61,8 +61,7 @@ public abstract class Gato extends JFrame implements ActionListener{
      @Override
            public void actionPerformed(ActionEvent e) {
             if(e.getSource()==iniciar){
-                turno=0;
-                 JOptionPane.showConfirmDialog(null, " COMIENZO DEL JUEGO"); 
+                turno=0; 
                  jugador1=JOptionPane.showInputDialog(this,"escriba el nombre del primer jugador "); 
                  jugador2=JOptionPane.showInputDialog(this,"escriba el nombre del segundo jugador ");
                  mensaje.setText("TURNO DEL JUGADOR " +jugador1);
@@ -164,8 +163,5 @@ for(int i=0;i<3;i++){
   } // fin del primer for 
 }// fin de la clase iniciardenuevo 
 
-// maaaa
-
 
 }// fin del main 
-//fin ssssssss
