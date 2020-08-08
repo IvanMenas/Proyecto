@@ -37,15 +37,13 @@ public abstract class Gato extends JFrame implements ActionListener{
         tablero=new JButton [3][3]; 
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
-            tablero [i][j] =new JButton();  
+            tablero [i][j] =new JButton();
             tablero [i][j].setBounds((i+1)*80+50,(j+1)*80,80,80);
             this.add(tablero [i][j]); 
              tablero [i][j].addActionListener(this);
             }
         }// fin del for 
         colorB=tablero[0][0].getBackground(); 
-        
-         
          
      } 
   
@@ -69,6 +67,7 @@ public abstract class Gato extends JFrame implements ActionListener{
                  jugador2=JOptionPane.showInputDialog(this,"escriba el nombre del segundo jugador ");
                  mensaje.setText("TURNO DEL JUGADOR " +jugador1);
                  iniciardenuevo();
+                 
             } else{
                 JButton boton=(JButton) e.getSource(); 
                 if(turno==0){
@@ -91,7 +90,70 @@ public abstract class Gato extends JFrame implements ActionListener{
                    }//fin del if2
                   }// fin del segundo else
                  }// fin del primer else 
+       
+        ganador1();  
+        ganador2();
      }// fin de actionPerformed
+ public void ganador1(){
+     int ganador=0;
+     
+        if(tablero[0][0].getText().equals("X")&& tablero[1][0].getText().equals("X")&& tablero[2][0].getText().equals("X")){
+            ganador=1;
+        }//fin del if horizontal arriba
+        if(tablero[0][0].getText().equals("X")&& tablero[0][1].getText().equals("X")&& tablero[0][2].getText().equals("X")){
+            ganador=1;
+        }//vertical izquierda
+        if(tablero[0][0].getText().equals("X")&& tablero[1][1].getText().equals("X")&& tablero[2][2].getText().equals("X")){
+            ganador=1;
+        }//diagonal principal
+        if(tablero[2][0].getText().equals("X")&& tablero[1][1].getText().equals("X")&& tablero[0][2].getText().equals("X")){
+            ganador=1;
+        }//diagonal inversa
+        if(tablero[2][0].getText().equals("X")&& tablero[2][1].getText().equals("X")&& tablero[2][2].getText().equals("X")){
+            ganador=1;
+        }//vertical derecha
+        if(tablero[0][2].getText().equals("X")&& tablero[1][2].getText().equals("X")&& tablero[2][2].getText().equals("X")){
+            ganador=1;
+        
+        }//horizontal abajo
+        if(tablero[1][0].getText().equals("X")&& tablero[1][1].getText().equals("X")&& tablero[1][2].getText().equals("X")){
+            ganador=1;
+        }//centro
+       if(ganador==1){
+       
+       JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador1+", ganaste!");
+       }//fin del if
+ }
+  public void ganador2(){
+     int ganador=0;
+     
+        if(tablero[0][0].getText().equals("O")&& tablero[1][0].getText().equals("O")&& tablero[2][0].getText().equals("O")){
+            ganador=2;
+        }//fin del if horizontal arriba
+        if(tablero[0][0].getText().equals("O")&& tablero[0][1].getText().equals("O")&& tablero[0][2].getText().equals("O")){
+            ganador=2;
+        }//vertical izquierda
+        if(tablero[0][0].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[2][2].getText().equals("O")){
+            ganador=2;
+        }//diagonal principal
+        if(tablero[2][0].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[0][2].getText().equals("O")){
+            ganador=2;
+        }//diagonal inversa
+        if(tablero[2][0].getText().equals("O")&& tablero[2][1].getText().equals("O")&& tablero[2][2].getText().equals("O")){
+            ganador=2;
+        }//vertical derecha
+        if(tablero[0][2].getText().equals("O")&& tablero[1][2].getText().equals("O")&& tablero[2][2].getText().equals("O")){
+            ganador=2;
+        
+        }//horizontal abajo
+        if(tablero[1][0].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[1][2].getText().equals("O")){
+            ganador=2;
+        }//centro
+       if(ganador==2){
+       
+       JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador2+", ganaste!");
+       }//fin del if
+ }
  public void iniciardenuevo() {
 for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
