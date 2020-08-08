@@ -16,7 +16,7 @@ public class Chances {
     private int Intentos_Fallidos;
 
     public Chances() {
-        this.Intentos_Totales = 5;
+        this.Intentos_Totales = 6;
        this.Intentos_Fallidos=0;
     }
     

@@ -26,10 +26,11 @@ public class Ganar_Perder {
        this.GameOver=gameover;
    }
     public void perder(int intentos_Fallidos){
-        if(intentos_Fallidos==5){
+        if(intentos_Fallidos==6){
             JOptionPane.showMessageDialog(null,"¡Perdiste, inténtalo de nuevo!");
             setGameOver(true);
         }
+    
     }
     public void ganar(String frase){
         if(!frase.contains("_")){

@@ -29,6 +29,7 @@ public class Ahorcado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         btnGenerete = new javax.swing.JButton();
         lblWord = new java.awt.Label();
         txtLetra = new java.awt.TextField();
@@ -36,7 +37,16 @@ public class Ahorcado extends javax.swing.JFrame {
         lblMsg = new javax.swing.JLabel();
         lblintentos = new javax.swing.JLabel();
         lblHead = new javax.swing.JLabel();
+        lblTorso = new javax.swing.JLabel();
+        lblHead2 = new javax.swing.JLabel();
+        lblBraDer = new javax.swing.JLabel();
+        lblPieDer = new javax.swing.JLabel();
+        lblPieIzq = new javax.swing.JLabel();
+        lblBraIzq = new javax.swing.JLabel();
         lblBackGround = new javax.swing.JLabel();
+        lblPieDer1 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 102, 0));
@@ -70,13 +80,22 @@ public class Ahorcado extends javax.swing.JFrame {
         getContentPane().add(btnTry, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, -1, -1));
         getContentPane().add(lblMsg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 280, 40));
 
-        lblintentos.setText("Intentos Restantes: 5");
+        lblintentos.setText("Intentos Restantes: 6");
         getContentPane().add(lblintentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 140, 20));
-        getContentPane().add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 90, 60));
+        getContentPane().add(lblHead, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 90, 60));
+        getContentPane().add(lblTorso, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, 70));
+        getContentPane().add(lblHead2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 70, 120));
+        getContentPane().add(lblBraDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 110, 90));
+        getContentPane().add(lblPieDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 60, 40));
+        getContentPane().add(lblPieIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 70, 40));
+        getContentPane().add(lblBraIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 130, 110));
 
         lblBackGround.setBackground(new java.awt.Color(255, 153, 0));
-        lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/AhorcadoBackGround2.jpg"))); // NOI18N
-        getContentPane().add(lblBackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
+        lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/img/AhorcadoBackGround2.jpg"))); // NOI18N
+        getContentPane().add(lblBackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 450));
+
+        lblPieDer1.setText("jLabel2");
+        getContentPane().add(lblPieDer1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 60, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -119,9 +138,33 @@ public class Ahorcado extends javax.swing.JFrame {
                     C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1);
                     int IntentosRestantes = C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos());
                     lblintentos.setText("Intentos restantes: "+ IntentosRestantes);
+                   lblHead2.setIcon(new ImageIcon(getClass().getResource("dead.png")));
                     //lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
                 }
+        
+        if (C.getIntentos_Fallidos()==2){
+lblTorso.setIcon(new ImageIcon(getClass().getResource("torso.png")));
         }
+        
+             if (C.getIntentos_Fallidos()==3){
+lblBraIzq.setIcon(new ImageIcon(getClass().getResource("mano izquierda.png")));
+        }
+        
+        if (C.getIntentos_Fallidos()==4){
+lblBraDer.setIcon(new ImageIcon(getClass().getResource("mano derecha.png")));
+        }
+            if (C.getIntentos_Fallidos()==5){
+lblPieDer.setIcon(new ImageIcon(getClass().getResource("pie derecho.png")));
+        }
+        if (C.getIntentos_Fallidos()==6){
+lblPieIzq.setIcon(new ImageIcon(getClass().getResource("pie izquierdo.png")));
+ lblHead2.setIcon(new ImageIcon(getClass().getResource("F.png")));       
+        }
+        
+        
+        }
+        
+        
         txtLetra.setText("");
         GP.perder(C.getIntentos_Fallidos());
         GP.ganar(lblWord.getText());
@@ -130,7 +173,7 @@ public class Ahorcado extends javax.swing.JFrame {
         cleaner();
         GP.setGameOver(false);
         C.setIntentos_Fallidos(0);
-        C.setIntentos_Totales(5);
+        C.setIntentos_Totales(6);
         w.setCompleteWord(false);
         w.setCorrectLetter(false);
         w.setLetter(' ');
@@ -141,7 +184,7 @@ public class Ahorcado extends javax.swing.JFrame {
 public void cleaner(){
     lblMsg.setText("");
     lblWord.setText("");
-    lblintentos.setText("Intentos restantes: 5");
+    lblintentos.setText("Intentos restantes: 6");
 }
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -187,11 +230,22 @@ public void cleaner(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerete;
     private javax.swing.JButton btnTry;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblBackGround;
+    private javax.swing.JLabel lblBraDer;
+    private javax.swing.JLabel lblBraIzq;
     private javax.swing.JLabel lblHead;
+    private javax.swing.JLabel lblHead2;
     private javax.swing.JLabel lblMsg;
+    private javax.swing.JLabel lblPieDer;
+    private javax.swing.JLabel lblPieDer1;
+    private javax.swing.JLabel lblPieIzq;
+    private javax.swing.JLabel lblTorso;
     private java.awt.Label lblWord;
     private javax.swing.JLabel lblintentos;
     private java.awt.TextField txtLetra;
     // End of variables declaration//GEN-END:variables
-}
+
+
+
+}//PRINCIPAL
