@@ -6,6 +6,7 @@
 package newpackage;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,9 +32,14 @@ public class MainMenu extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        cboReglas = new javax.swing.JComboBox<>();
+        lblBackGround = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 153, 102));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(153, 102, 0));
         jButton1.setText("Ahorcado");
         jButton1.setActionCommand("btnAhorcado");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -41,56 +47,67 @@ public class MainMenu extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 116, 102, 44));
 
+        jButton2.setBackground(new java.awt.Color(153, 102, 0));
         jButton2.setText("Gato");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 171, 102, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE))
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
-        );
+        cboReglas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ver Reglas", "Gato", "Ahorcado" }));
+        cboReglas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboReglasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cboReglas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 12, -1, -1));
+
+        lblBackGround.setBackground(new java.awt.Color(255, 153, 51));
+        lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/img/wood.jpg"))); // NOI18N
+        getContentPane().add(lblBackGround, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    Roomer MyRoom = new Roomer();
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Ahorcado ahorcado = new Ahorcado();
-         this.setVisible(false);
-        ahorcado.setVisible(true);
+        MyRoom.GoTo("Ahorcado");
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         Gato Gato;
-        Gato = new Gato() {};
+         MyRoom.GoTo("Gato");
          this.setVisible(false);
-        Gato.setVisible(true);
-        Gato.setSize(500, 550);
-        Gato.setLocationRelativeTo(null);
-        Gato.setResizable(false );
-        Gato.setTitle("Juego de Gato");
+       
        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cboReglasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboReglasActionPerformed
+        // TODO add your handling code here:
+        String Option = (String) cboReglas.getSelectedItem();
+        
+        switch(Option){
+            case "Ahorcado":
+                MyRoom.GoTo("ReglaAhorcado");
+                this.setVisible(false);
+                break;
+                
+            case "Gato":
+                MyRoom.GoTo("ReglaGato");
+                this.setVisible(false);
+                break;
+                
+            default:
+                break;
+        }
+        
+    }//GEN-LAST:event_cboReglasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,7 +145,9 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cboReglas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel lblBackGround;
     // End of variables declaration//GEN-END:variables
 }

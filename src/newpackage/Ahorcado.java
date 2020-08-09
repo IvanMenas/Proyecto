@@ -43,6 +43,7 @@ public class Ahorcado extends javax.swing.JFrame {
         lblPieDer = new javax.swing.JLabel();
         lblPieIzq = new javax.swing.JLabel();
         lblBraIzq = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
         lblBackGround = new javax.swing.JLabel();
         lblPieDer1 = new javax.swing.JLabel();
 
@@ -89,6 +90,14 @@ public class Ahorcado extends javax.swing.JFrame {
         getContentPane().add(lblPieDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 60, 40));
         getContentPane().add(lblPieIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 70, 40));
         getContentPane().add(lblBraIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 130, 110));
+
+        btnBack.setText("Volver");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
 
         lblBackGround.setBackground(new java.awt.Color(255, 153, 0));
         lblBackGround.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/img/AhorcadoBackGround2.jpg"))); // NOI18N
@@ -143,22 +152,22 @@ public class Ahorcado extends javax.swing.JFrame {
                 }
         
         if (C.getIntentos_Fallidos()==2){
-lblTorso.setIcon(new ImageIcon(getClass().getResource("torso.png")));
+            lblTorso.setIcon(new ImageIcon(getClass().getResource("torso.png")));
         }
         
              if (C.getIntentos_Fallidos()==3){
-lblBraIzq.setIcon(new ImageIcon(getClass().getResource("mano izquierda.png")));
+            lblBraIzq.setIcon(new ImageIcon(getClass().getResource("mano izquierda.png")));
         }
         
         if (C.getIntentos_Fallidos()==4){
-lblBraDer.setIcon(new ImageIcon(getClass().getResource("mano derecha.png")));
+            lblBraDer.setIcon(new ImageIcon(getClass().getResource("mano derecha.png")));
         }
             if (C.getIntentos_Fallidos()==5){
-lblPieDer.setIcon(new ImageIcon(getClass().getResource("pie derecho.png")));
+            lblPieDer.setIcon(new ImageIcon(getClass().getResource("pie derecho.png")));
         }
         if (C.getIntentos_Fallidos()==6){
-lblPieIzq.setIcon(new ImageIcon(getClass().getResource("pie izquierdo.png")));
- lblHead2.setIcon(new ImageIcon(getClass().getResource("F.png")));       
+            lblPieIzq.setIcon(new ImageIcon(getClass().getResource("pie izquierdo.png")));
+             lblHead2.setIcon(new ImageIcon(getClass().getResource("F.png")));       
         }
         
         
@@ -185,12 +194,26 @@ public void cleaner(){
     lblMsg.setText("");
     lblWord.setText("");
     lblintentos.setText("Intentos restantes: 6");
+    lblBraDer.setIcon(null);
+    lblBraIzq.setIcon(null);
+    lblHead.setIcon(null);
+    lblTorso.setIcon(null);
+    lblPieDer.setIcon(null);
+    lblPieIzq.setIcon(null);
+    lblHead2.setIcon(null);
+    
 }
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         
     }//GEN-LAST:event_formWindowOpened
+    Roomer MyRoom = new Roomer();
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        MyRoom.GoTo("MainMenu");
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
 
    
     public static void main(String args[]) {
@@ -228,6 +251,7 @@ public void cleaner(){
     }//Fin Main
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnGenerete;
     private javax.swing.JButton btnTry;
     private javax.swing.JLabel jLabel1;
