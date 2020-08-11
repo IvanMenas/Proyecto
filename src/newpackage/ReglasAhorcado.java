@@ -33,11 +33,22 @@ public class ReglasAhorcado extends javax.swing.JFrame {
         lblBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 270));
+
+        lblRules.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRules.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lblRules.setAlignmentX(0.5F);
+        lblRules.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblRules.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 250, 220));
 
         btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -49,7 +60,11 @@ public class ReglasAhorcado extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 270, 270));
 
+        lblBG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblBG.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/newpackage/img/wood.jpg"))); // NOI18N
+        lblBG.setAlignmentX(0.1F);
+        lblBG.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lblBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, -1));
 
         pack();
@@ -60,7 +75,47 @@ public class ReglasAhorcado extends javax.swing.JFrame {
         MyRoom.GoTo("MainMenu");
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        rules();
+    }//GEN-LAST:event_formWindowOpened
     Roomer MyRoom = new Roomer();
+    
+   private void rules(){
+      String ru="";
+      String arreglo[]= new String [6];
+      arreglo[0]="<html>1. El juego brinda una palabra para adivinar.<P>";
+      arreglo[1]="<html>2. Se muestra la cantidad de espacio que contiene la palabra.<P>";
+      arreglo[2]="<html>3. El jugador va diciendo letras con el fin de completar la palabra.<P>";
+      arreglo[3]="<html>4. El jugador solo tiene seis oportunidades para fallar al decir las letras.<P>";
+      arreglo[4]="<html>5. Si el jugador acierta una letra se va a mostrar en el su lugar correspondiente.<P>";
+      arreglo[5]="<html>6. Si una letra se repite se coloca en todos los espacios en a las que pertecene.<P>";
+      
+      for(int r=0;r<arreglo.length;r++){
+          if(r==0){
+              ru=ru+arreglo[0];
+          }
+          else if(r==1){
+              ru=ru+arreglo[1];
+          }
+          else if(r==2){
+              ru=ru+arreglo[2];
+          }
+          else if(r==3){
+              ru=ru+arreglo[3];
+          }
+          else if(r==4){
+              ru=ru+arreglo[4];
+          }
+          else if(r==5){
+              ru=ru+arreglo[5];
+          } 
+          
+      }//fin del for
+      lblRules.setText(ru);
+
+   }//fin del método rules
     /**
      * @param args the command line arguments
      */

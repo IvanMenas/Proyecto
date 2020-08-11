@@ -27,10 +27,10 @@ public abstract class Gato extends JFrame implements ActionListener{
      public Gato(){
      
         this.setLayout(null);
-        mensaje=new JLabel("bienvenidos al juego");
+        mensaje=new JLabel("Bienvenidos al juego");
         mensaje.setBounds(150, 40,  200, 30);
         this.add(mensaje); 
-        iniciar=new JButton("iniciar juego"); 
+        iniciar=new JButton("Iniciar juego"); 
         iniciar.setBounds(175,350,150,30);
         iniciar.addActionListener(this);
         this.add(iniciar); 
@@ -43,10 +43,8 @@ public abstract class Gato extends JFrame implements ActionListener{
              tablero [i][j].addActionListener(this);
             }
         }// fin del for 
-        colorB=tablero[0][0].getBackground(); 
-         
-     } 
-  
+        colorB=tablero[0][0].getBackground();
+     }//constructor 
     public static void main(String[] args) {
       // Gato ventana= new Gato() {
        // }; 
@@ -62,8 +60,8 @@ public abstract class Gato extends JFrame implements ActionListener{
            public void actionPerformed(ActionEvent e) {
             if(e.getSource()==iniciar){
                 turno=0; 
-                 jugador1=JOptionPane.showInputDialog(this,"escriba el nombre del primer jugador "); 
-                 jugador2=JOptionPane.showInputDialog(this,"escriba el nombre del segundo jugador ");
+                 jugador1=JOptionPane.showInputDialog(this,"Escriba el nombre del primer jugador "); 
+                 jugador2=JOptionPane.showInputDialog(this,"Escriba el nombre del segundo jugador ");
                  mensaje.setText("TURNO DEL JUGADOR " +jugador1);
                  iniciardenuevo();
                  
@@ -117,7 +115,10 @@ public abstract class Gato extends JFrame implements ActionListener{
         }//horizontal abajo
         if(tablero[1][0].getText().equals("X")&& tablero[1][1].getText().equals("X")&& tablero[1][2].getText().equals("X")){
             ganador=1;
-        }//centro
+        }//centro vertical
+        if(tablero[0][1].getText().equals("X")&& tablero[1][1].getText().equals("X")&& tablero[2][1].getText().equals("X")){
+            ganador=1;
+        }//centro horizontal
        if(ganador==1){
        
        JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador1+", ganaste!");
@@ -147,7 +148,10 @@ public abstract class Gato extends JFrame implements ActionListener{
         }//horizontal abajo
         if(tablero[1][0].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[1][2].getText().equals("O")){
             ganador=2;
-        }//centro
+        }//centro vertical
+        if(tablero[0][1].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[2][1].getText().equals("O")){
+            ganador=2;
+        }//
        if(ganador==2){
        
        JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador2+", ganaste!");
