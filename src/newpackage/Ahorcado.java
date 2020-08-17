@@ -175,9 +175,9 @@ public class Ahorcado extends javax.swing.JFrame {
         
         
         txtLetra.setText("");
-        GP.perder(C.getIntentos_Fallidos());
-        GP.ganar(lblWord.getText());
-        
+        GP.perder(C.getIntentos_Fallidos());//se envía como parámetro la frase oculta a la clase Ganar_Perder
+        GP.ganar(lblWord.getText());//se envía como parámetro la frase a la clase Ganar_Perder
+        //se reinician todos los métodos para volver a empezar
         if(GP.getGameOver()){
         cleaner();
         GP.setGameOver(false);
@@ -188,7 +188,7 @@ public class Ahorcado extends javax.swing.JFrame {
         w.setLetter(' ');
         w.setWord("");
         btnTry.setEnabled(false);
-        }
+        }//fin del if
     }//GEN-LAST:event_btnTryActionPerformed
 public void cleaner(){
     lblMsg.setText("");

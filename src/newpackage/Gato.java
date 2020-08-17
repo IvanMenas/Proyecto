@@ -87,16 +87,16 @@ public abstract class Gato extends JFrame implements ActionListener{
                    }//fin del if2
                   }// fin del segundo else
                  }// fin del primer else 
-       
+       //se llama a los métodos para ejecutarlos
         ganador1();  
         ganador2();
      }// fin de actionPerformed
  public void ganador1(){
-     int ganador=0;
+     int ganador=0;//se declara la variable para después verificar si gana o no
      
         if(tablero[0][0].getText().equals("X")&& tablero[1][0].getText().equals("X")&& tablero[2][0].getText().equals("X")){
             ganador=1;
-        }//fin del if horizontal arriba
+        }//horizontal arriba
         if(tablero[0][0].getText().equals("X")&& tablero[0][1].getText().equals("X")&& tablero[0][2].getText().equals("X")){
             ganador=1;
         }//vertical izquierda
@@ -110,9 +110,7 @@ public abstract class Gato extends JFrame implements ActionListener{
             ganador=1;
         }//vertical derecha
         if(tablero[0][2].getText().equals("X")&& tablero[1][2].getText().equals("X")&& tablero[2][2].getText().equals("X")){
-            ganador=1;
-        
-        }//horizontal abajo
+            ganador=1;}//horizontal abajo
         if(tablero[1][0].getText().equals("X")&& tablero[1][1].getText().equals("X")&& tablero[1][2].getText().equals("X")){
             ganador=1;
         }//centro vertical
@@ -123,13 +121,13 @@ public abstract class Gato extends JFrame implements ActionListener{
        
        JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador1+", ganaste!");
        }//fin del if
- }
+ }//fin del método ganador1
   public void ganador2(){
-     int ganador=0;
+     int ganador=0;//se declara variable para verificar si gana o no
      
         if(tablero[0][0].getText().equals("O")&& tablero[1][0].getText().equals("O")&& tablero[2][0].getText().equals("O")){
             ganador=2;
-        }//fin del if horizontal arriba
+        }//horizontal arriba
         if(tablero[0][0].getText().equals("O")&& tablero[0][1].getText().equals("O")&& tablero[0][2].getText().equals("O")){
             ganador=2;
         }//vertical izquierda
@@ -144,19 +142,18 @@ public abstract class Gato extends JFrame implements ActionListener{
         }//vertical derecha
         if(tablero[0][2].getText().equals("O")&& tablero[1][2].getText().equals("O")&& tablero[2][2].getText().equals("O")){
             ganador=2;
-        
         }//horizontal abajo
         if(tablero[1][0].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[1][2].getText().equals("O")){
             ganador=2;
         }//centro vertical
         if(tablero[0][1].getText().equals("O")&& tablero[1][1].getText().equals("O")&& tablero[2][1].getText().equals("O")){
             ganador=2;
-        }//
+        }//centro horizontal
        if(ganador==2){
        
        JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador2+", ganaste!");
        }//fin del if
- }
+ }//fin del método ganador2
  public void iniciardenuevo() {
 for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){

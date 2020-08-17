@@ -78,13 +78,14 @@ public class ReglasAhorcado extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        rules();
+        rules();//se llama el método rules para poder ejecutarlo
     }//GEN-LAST:event_formWindowOpened
     Roomer MyRoom = new Roomer();
     
    private void rules(){
-      String ru="";
-      String arreglo[]= new String [6];
+      String ru="";//variable para almacenar toda la información del arreglo
+      String arreglo[]= new String [6];//declaración del arreglo
+      //se llena el arreglo// el <html> y el <P> es para poder hacer un saltó de línea en el label
       arreglo[0]="<html>1. El juego brinda una palabra para adivinar.<P>";
       arreglo[1]="<html>2. Se muestra la cantidad de espacio que contiene la palabra.<P>";
       arreglo[2]="<html>3. El jugador va diciendo letras con el fin de completar la palabra.<P>";
@@ -95,25 +96,25 @@ public class ReglasAhorcado extends javax.swing.JFrame {
       for(int r=0;r<arreglo.length;r++){
           if(r==0){
               ru=ru+arreglo[0];
-          }
+          }//fin del if
           else if(r==1){
               ru=ru+arreglo[1];
-          }
+          }//fin del else if
           else if(r==2){
               ru=ru+arreglo[2];
-          }
+          }//fin del else if
           else if(r==3){
               ru=ru+arreglo[3];
-          }
+          }//fin del else if
           else if(r==4){
               ru=ru+arreglo[4];
-          }
+          }//fin del else if
           else if(r==5){
               ru=ru+arreglo[5];
-          } 
+          }//fin del else if
           
       }//fin del for
-      lblRules.setText(ru);
+      lblRules.setText(ru);//se muestra toda la información que se almacenó
 
    }//fin del método rules
     /**
