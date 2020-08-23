@@ -46,14 +46,6 @@ public abstract class Gato extends JFrame implements ActionListener{
         colorB=tablero[0][0].getBackground();
      }//constructor 
     public static void main(String[] args) {
-      // Gato ventana= new Gato() {
-       // }; 
-        //.setDefaultCloseOperation(3);
-        //ventana.setSize(500, 550);
-        //ventana.setLocationRelativeTo(null);
-        //ventana.setResizable(false );
-        //ventana.setTitle("juego de gato");
-        //ventana.setVisible(true);
         }
     
      @Override

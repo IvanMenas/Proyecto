@@ -45,8 +45,8 @@ public class Roomer {
                 RA.setVisible(true);
                 break;
                 
-        }
+        }//fin del switch
         
-    }
+    }//fin de método GoTo
     
-}
+}//fin de la clase Roomer

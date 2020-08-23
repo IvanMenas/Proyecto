@@ -208,7 +208,7 @@ public void cleaner(){
     lblPieIzq.setIcon(null);
     lblHead2.setIcon(null);
     
-}
+}//fin del método cleaner
     
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:

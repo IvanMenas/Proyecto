@@ -12,9 +12,8 @@ import javax.swing.JOptionPane;
  * @author Alexa
  */
 public class Ganar_Perder {
-    //se declara una variable y se hace una instancia
+    //se declara una variable
     private boolean GameOver;
-    Chances chance=new Chances();
     
     public Ganar_Perder(){
         this.GameOver=false;//se declara la variable como false
