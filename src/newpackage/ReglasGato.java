@@ -5,6 +5,7 @@
  */
 package newpackage;
 
+import javax.swing.JOptionPane;
 /**
  *
  * @author IM
@@ -33,6 +34,11 @@ public class ReglasGato extends javax.swing.JFrame {
         lblBG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 0));
@@ -60,6 +66,11 @@ public class ReglasGato extends javax.swing.JFrame {
         MyRoom.GoTo("MainMenu");
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(null, "test");
+    }//GEN-LAST:event_formWindowOpened
 
     Roomer MyRoom = new Roomer();
     /**
