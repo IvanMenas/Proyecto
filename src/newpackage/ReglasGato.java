@@ -5,7 +5,6 @@
  */
 package newpackage;
 
-import javax.swing.JOptionPane;
 /**
  *
  * @author IM
@@ -43,7 +42,9 @@ public class ReglasGato extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 12, 240, 260));
+
+        lblRules.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(lblRules, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, 220, 210));
 
         btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -69,10 +70,36 @@ public class ReglasGato extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-        JOptionPane.showConfirmDialog(null, "test");
+        rules();//se llama el método rules para poder ejecutarlo
     }//GEN-LAST:event_formWindowOpened
 
     Roomer MyRoom = new Roomer();
+    
+    private void rules(){
+      String ru="";//variable para almacenar toda la información del arreglo
+      String arreglo[]= new String [4];//declaración del arreglo
+      //se llena el arreglo// el <html> y el <P> es para poder hacer un saltó de línea en el label
+      arreglo[0]="<html>1. Consiste en dos jugadores, uno será símbolo X y el otro O.<P>";
+      arreglo[1]="<html>2. Se juega por turnos, primero el jugador con la X y después el jugador con la O.<P>";
+      arreglo[2]="<html>3. Se puede ganar de ocho maneras distintas.<P>";
+      arreglo[3]="<html>4. También hay posibilidades de quedar empate.<P>";
+      
+      for(int r=0;r<arreglo.length;r++){
+          if(r==0){
+              ru=ru+arreglo[0];
+          }//fin del if
+          else if(r==1){
+              ru=ru+arreglo[1];
+          }//fin del else if
+          else if(r==2){
+              ru=ru+arreglo[2];
+          }//fin del else if
+          else if(r==3){
+              ru=ru+arreglo[3];
+          }//fin del else if 
+      }//fin del for
+      lblRules.setText(ru);//se muestra toda la información que se almacenó
+   }//fin de rules
     /**
      * @param args the command line arguments
      */

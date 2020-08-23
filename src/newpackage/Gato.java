@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package newpackage;
-// los import en uso 
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +23,7 @@ public abstract class Gato extends JFrame implements ActionListener{
      int turno =-1; 
      JLabel mensaje;
      Color colorB;
-     // se declara el tablero y el botin de inicio del juego 
+     
      public Gato(){
      
         this.setLayout(null);
@@ -46,10 +46,17 @@ public abstract class Gato extends JFrame implements ActionListener{
         colorB=tablero[0][0].getBackground();
      }//constructor 
     public static void main(String[] args) {
+      // Gato ventana= new Gato() {
+       // }; 
+        //.setDefaultCloseOperation(3);
+        //ventana.setSize(500, 550);
+        //ventana.setLocationRelativeTo(null);
+        //ventana.setResizable(false );
+        //ventana.setTitle("juego de gato");
+        //ventana.setVisible(true);
         }
     
      @Override
-     // se declara los turnos mas los espacios del  tablero 
            public void actionPerformed(ActionEvent e) {
             if(e.getSource()==iniciar){
                 turno=0; 
@@ -84,8 +91,6 @@ public abstract class Gato extends JFrame implements ActionListener{
         ganador1();  
         ganador2();
      }// fin de actionPerformed
-   
-    // se declara los ganadores por medio del tablero y la posicion de las x y o  
  public void ganador1(){
      int ganador=0;//se declara la variable para después verificar si gana o no
      
@@ -149,8 +154,6 @@ public abstract class Gato extends JFrame implements ActionListener{
        JOptionPane.showMessageDialog(null,"¡Felicidades "+jugador2+", ganaste!");
        }//fin del if
  }//fin del método ganador2
-  
-  // esta clase para poder iniciar de nuevo el juego por medio del boton de inicar juego 
  public void iniciardenuevo() {
 for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){

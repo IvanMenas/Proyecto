@@ -10,8 +10,8 @@ package newpackage;
  * @author IM
  */
 public class Roomer {
-   //Esta clase funciona como un manager, el cual administra el acceso a clases y frames
-    //Mediante los parámetros que recibe, y todas las validaciones las hace utilizando el switch
+   //Esta funcion es un manager de clases
+    //Funciona para no crear instancias por cada vez que se cambia de frame
     public static void GoTo(String MyClass){
         switch(MyClass){
             
@@ -21,9 +21,9 @@ public class Roomer {
                 break;
             
             case "Gato":
-                Gato Gato;
+                 Gato Gato;
                 Gato = new Gato() {};
-                Gato.setVisible(true);
+                 Gato.setVisible(true);
                 Gato.setSize(500, 550);
                 Gato.setLocationRelativeTo(null);
                 Gato.setResizable(false );
@@ -45,8 +45,8 @@ public class Roomer {
                 RA.setVisible(true);
                 break;
                 
-        }//fin del switch
+        }
         
-    }//fin de método GoTo
+    }
     
-}//fin de la clase Roomer
+}

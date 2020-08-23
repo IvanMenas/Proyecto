@@ -14,15 +14,15 @@ public class Word {
     private char Letter;
     private boolean CorrectLetter;
     private boolean CompleteWord;
-    //Las variables booleanas se utilizan como banderas para saber si gan'o o no
+    
         public Word(){
-            //constructor en 0
             Word = "";
             Letter = ' ';
             CorrectLetter = false;
             CompleteWord = false;
         }
-//Encapsulamiento
+
+       //Encapsulamiento
     public char getLetter() {
         return Letter;
     
@@ -54,33 +54,33 @@ public class Word {
     public void setWord(String Word) {
         this.Word = Word;
     }
-        //Esta funcion busca la letra en la palabra completa
+        
+    //Funcion booleana que devuelve una bandera despues de encontrar el char en el string
       public boolean FindLetter(String WordSelected, char UsersChar){
         
         for(int i = 0; i < WordSelected.length(); i++){
-            if(WordSelected.charAt(i) == UsersChar){ //Compara el char ingresado por el usuario con cada char de la palabra
-                System.out.println(WordSelected.charAt(i)); ///Debug
-                return true; //Devuelve bandera
+            if(WordSelected.charAt(i) == UsersChar){
+                System.out.println(WordSelected.charAt(i));
+                return true;
             }
         }
         
         return false; 
     }
-    
+    //Busca un caracter en el texto del label y sustituye el guion por una letra
     public String ReplaceLetter(String LabelContain,String WordSelected, char UsersChar){
         
         System.out.println(WordSelected.length());
-      //  System.out.println(LabelContain.length());
-        for(int i = 0; i < WordSelected.length(); i++){
-            //Recorre el label y sustituye el guion con la letra insertada
-            if(WordSelected.charAt(i) == UsersChar){
+        System.out.println(LabelContain.length());
+        for(int i = 0; i < WordSelected.length(); i++){ //Recorre la palabra
+            if(WordSelected.charAt(i) == UsersChar){ //Valida que la letra de la palabra sea la misma que la insertada por el usuario
                 char[] LabelChars = LabelContain.toCharArray();
                 LabelChars[i*2+1] = UsersChar;
-                LabelContain = String.valueOf(LabelChars); //Asigna el valor nuevo y lo retorna
+                LabelContain = String.valueOf(LabelChars);
             }
         }
         
-        return LabelContain;
+        return LabelContain; //Retorna el contenido
     }
         
 }
