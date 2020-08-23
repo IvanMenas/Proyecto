@@ -11,6 +11,8 @@ import javax.swing.JOptionPane;
  *
  * @author Personal
  */
+//Clase chances para saber las posibilidades de ganar y perder, en base a esto, se determina 
+//la parte del cuerpo que se va a mostrar del personaje
 public class Chances {
      private int Intentos_Totales;
     private int Intentos_Fallidos;
@@ -20,6 +22,7 @@ public class Chances {
        this.Intentos_Fallidos=0;
     }
     
+    //Encapsulamiento
     public int getIntentos_Totales() {
         return Intentos_Totales;
     }

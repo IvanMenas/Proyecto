@@ -115,19 +115,21 @@ public class Ahorcado extends javax.swing.JFrame {
         
     private void btnGenereteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenereteActionPerformed
         // TODO add your handling code here:
-        btnTry.setEnabled(true);
-        lblWord.setText("");
+        //Al pulsar el boton de generar palabra, se produce lo siguiente:
+        btnTry.setEnabled(true); //Se habilita el boton try, encargado de enviar el intento
+        lblWord.setText(""); 
         String[] x = {"PERRO", "GATO", "COMPUTADORA", "PROGRAMACION", "ZAPATO", "PATINETA", "UKELELE", "MANGO", "BOTELLA",
-        "MARCIANOS", "ESCRITORIO", "VAPOR", "ORIENTE", "CORONAVIRUS", "VIKINGOS", "IDIOMA", "ESPAÑOL", "CUARENTENA"};
-        Random rand = new Random();
+        "MARCIANOS", "ESCRITORIO", "VAPOR", "ORIENTE", "CORONAVIRUS", "VIKINGOS", "IDIOMA", "ESPAÑOL", "CUARENTENA"}; 
+        //Se abre el array de strings para generar palabras
+        Random rand = new Random(); //Se elige un numero al azar
 
-        int n = rand.nextInt(17);
-        String SelectedWord = x [n];
+        int n = rand.nextInt(17); //Se elige una palabra basandose en el numero
+        String SelectedWord = x [n]; //Se asigna la palabra como SelectedWord
         
-        System.out.println(SelectedWord);
-        int WordLength = SelectedWord.length();
+        System.out.println(SelectedWord); //Debug
+        int WordLength = SelectedWord.length(); //Se obtiene el largo de la palabra
         
-        for(int i = 0; i < WordLength; i++){
+        for(int i = 0; i < WordLength; i++){ //Este for es estetico, su objetivo es mostrar guiones en los lugares donde deben ir letras y asignarlo al label
             String lblText = lblWord.getText();
             lblWord.setText(lblText + " _");
         }
@@ -136,21 +138,21 @@ public class Ahorcado extends javax.swing.JFrame {
 
     private void btnTryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTryActionPerformed
         lblMsg.setText("");
-        if (txtLetra.getText().length()!= 1 ){
-            lblMsg.setText("Cantidad de caracteres invalida");
+        if (txtLetra.getText().length()!= 1 ){ //Valida el ingreso de algun dato
+            lblMsg.setText("Cantidad de caracteres invalida"); 
         }
         else {
-            w.setLetter(txtLetra.getText().toUpperCase().charAt(0));
-                if(w.FindLetter(w.getWord(), w.getLetter())){
-                    lblWord.setText(w.ReplaceLetter(lblWord.getText(), w.getWord(), w.getLetter()));
+            w.setLetter(txtLetra.getText().toUpperCase().charAt(0)); //Convierte todo en mayuscula, para mejor administracion
+                if(w.FindLetter(w.getWord(), w.getLetter())){ //Valida la existencia de esa letra en esa palabra
+                    lblWord.setText(w.ReplaceLetter(lblWord.getText(), w.getWord(), w.getLetter())); //Devuelve el guion sustituido al label
                 }else{
-                    C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1);
+                    C.setIntentos_Fallidos(C.getIntentos_Fallidos()+1); //Se incrementan los errores
                     int IntentosRestantes = C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos());
                     lblintentos.setText("Intentos restantes: "+ IntentosRestantes);
-                   lblHead2.setIcon(new ImageIcon(getClass().getResource("dead.png")));
+                   lblHead2.setIcon(new ImageIcon(getClass().getResource("dead.png"))); //Despliega la imagen
                     //lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
                 }
-        
+        //Se despliegan las partes del ahorcado
         if (C.getIntentos_Fallidos()==2){
             lblTorso.setIcon(new ImageIcon(getClass().getResource("torso.png")));
         }
@@ -174,7 +176,7 @@ public class Ahorcado extends javax.swing.JFrame {
         }
         
         
-        txtLetra.setText("");
+        txtLetra.setText(""); //Reset textbox
         GP.perder(C.getIntentos_Fallidos());//se envía como parámetro la frase oculta a la clase Ganar_Perder
         GP.ganar(lblWord.getText());//se envía como parámetro la frase a la clase Ganar_Perder
         //se reinician todos los métodos para volver a empezar
@@ -191,6 +193,7 @@ public class Ahorcado extends javax.swing.JFrame {
         }//fin del if
     }//GEN-LAST:event_btnTryActionPerformed
 public void cleaner(){
+    //Esta funcion sirve para resetear valores en modos default cada vez que el juego acaba
     lblMsg.setText("");
     lblWord.setText("");
     lblintentos.setText("Intentos restantes: 6");
@@ -208,11 +211,12 @@ public void cleaner(){
         // TODO add your handling code here:
         
     }//GEN-LAST:event_formWindowOpened
-    Roomer MyRoom = new Roomer();
+    Roomer MyRoom = new Roomer(); //Instancia del manager de clases
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         MyRoom.GoTo("MainMenu");
         this.setVisible(false);
+        //Volver al menu mediante el manager
     }//GEN-LAST:event_btnBackActionPerformed
 
    

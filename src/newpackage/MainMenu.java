@@ -77,12 +77,12 @@ public class MainMenu extends javax.swing.JFrame {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MyRoom.GoTo("Ahorcado");
+        MyRoom.GoTo("Ahorcado"); //Ir a ahorcado
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         MyRoom.GoTo("Gato");
+         MyRoom.GoTo("Gato"); //Ir a gato
          this.setVisible(false);
        
        
@@ -90,9 +90,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void cboReglasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboReglasActionPerformed
         // TODO add your handling code here:
-        String Option = (String) cboReglas.getSelectedItem();
+        String Option = (String) cboReglas.getSelectedItem(); //Obtener valor del combobox
         
         switch(Option){
+            //Instanciar la clase mediante el manager
             case "Ahorcado":
                 MyRoom.GoTo("ReglaAhorcado");
                 this.setVisible(false);
