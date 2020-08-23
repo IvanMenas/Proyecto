@@ -45,9 +45,12 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblRules">
+          <Properties>
+            <Property name="verticalAlignment" type="int" value="1"/>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="12" width="240" height="260"/>
+              <AbsoluteConstraints x="10" y="12" width="220" height="210"/>
             </Constraint>
           </Constraints>
         </Component>
