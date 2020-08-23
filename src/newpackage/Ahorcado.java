@@ -150,7 +150,9 @@ public class Ahorcado extends javax.swing.JFrame {
                     int IntentosRestantes = C.Intentos_Restantes(C.getIntentos_Totales(), C.getIntentos_Fallidos());
                     lblintentos.setText("Intentos restantes: "+ IntentosRestantes);
                    lblHead2.setIcon(new ImageIcon(getClass().getResource("dead.png"))); //Despliega la imagen
-                    //lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
+                   //Se agregaron los intentos fallidos mediantes arreglos
+                    //adempas de agregar la aparición del muñeco en el ahorcado por un Jlabel.SetIcon agregando una imagen PNG
+                   //lblHead.setIcon(new ImageIcon(getClass().getResource("head3.png")));
                 }
         //Se despliegan las partes del ahorcado
         if (C.getIntentos_Fallidos()==2){
@@ -169,6 +171,7 @@ public class Ahorcado extends javax.swing.JFrame {
         }
         if (C.getIntentos_Fallidos()==6){
             lblPieIzq.setIcon(new ImageIcon(getClass().getResource("pie izquierdo.png")));
+            //Todas las piezas del muñeco aparecen poco mediante un if que iguala intentos fallidos por el número de veces que ha fallado
              lblHead2.setIcon(new ImageIcon(getClass().getResource("F.png")));       
         }
         
